@@ -1,0 +1,111 @@
+Responsividade
+
+Tudo que for desenhado para o site, deve ser pensado para ser desenvolvido para computador pensando em como será no celular, sendo o mais completo possível.
+
+um layout adaptativo vai se adaptando de acordo com o tamanho pré definidi
+já um layout responsivo vai se adaptando de acorodo com o tamanho da tela disponível
+
+imagens responsivas - 
+
+usando css inline media="(min-width: 450px)" srcset="qd2.png"
+quando a tela chegar na largura de 450, ela altera a imagem para uma proporcional
+
+via css, podemos manter o formato das imagens usando object fit via css
+onde ela será sempre dimensionada, mantendo ela do formato original (mesmo que distorcida)
+
+cover é a mais utilizada, dando mais enfase ao centro da imagem e cortando as bordas 
+
+none, mantem o formato original e corta mantendo a dimensão original
+
+
+
+- responsividade de elementos usando @media 
+dentro do media, as propriedades são reescritas, de acordo com a pré definição nos parametros
+exemplo:
+
+@media (parametros) {
+    body {
+        background-color: #CCC
+    }
+
+    h1 {
+        font-size: 15px
+    }
+} 
+
+
+- propriedade usando @media para quando houver itens para impressão 
+
+@media only print {
+    body {
+        background-color: #ffffffff
+    }
+
+    h1 {
+        font-size: 10px
+    }
+}
+
+
+- diferença de portrait e landscape
+
+- aspect-ratio e min-aspect-ratio 
+    proporção dos tamanhos da tela 
+    1/1 
+    2/3
+    1/2
+
+- function var dentro do @media
+    background-color: var(--bg-color)
+
+    definir a variavel
+
+    :root {
+        --bg-color: #FFF
+    }
+
+    e depois apenas alterar dentro do @media (--bg-color: #CCC) 
+
+- reponsividade que mantenha a proporção original de um video 
+    usar uma div para container 
+        usar uma segunda div como area do video 
+            colocar o video dentro disso 
+    <div class="container">
+        <div class="video-area"> 
+            iframe
+        </div>
+    </div>
+
+    no css definir: 
+
+    .video-area {
+        position: relative;
+        height: 0px;
+        background-color: #CCC;
+        padding: 0px 0px 56.25%;
+    }
+
+    .video-area iframe { 
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        width: 100%
+        height: 100%
+        border: 0px;
+    }
+
+- função min(valor%, valorpx, valorvh) e max(valor%, valorpx, valorvh) 
+    redimensionar imagens usando min ou max 
+
+- função calc para ajustar espaçamentos sem quebrar o layout   
+    (sem usar margin)
+
+    widht: calc(100% - 20px);
+    ou widht: calc(600px - 20%);
+    ou widht: calc(70% - 15px);
+
+
+
+
